@@ -27,21 +27,20 @@ Amazon DynamoDB: Stores the visitor count.
 
 Documentation:
 
-aws-setup/S3-CloudFront-Route53-Setup.md: Instructions for setting up the static website hosting.
+s3 bucket/S3-CloudFront-Route53-Setup.md: Instructions for setting up the static website hosting.
 
-aws-setup/API-Gateway-Lambda-DynamoDB-Setup.md: Instructions for setting up the visitor counter backend.
+lambda function/API-Gateway-Lambda-DynamoDB-Setup.md: Instructions for setting up the visitor counter backend.
 
 Repository Structure
 my-online-cv/
 ├── README.md
-├── index.html
-├── style.css
-├── script.js
-├── lambda/
-│   └── visitor_counter_function.py
-└── aws-setup/
-    ├── S3-CloudFront-Route53-Setup.md
-    └── API-Gateway-Lambda-DynamoDB-Setup.md
+    S3 StaticWebCV/
+      └── index.html
+├── lambda function/
+      └── ShingiCVisitorCounter.py
+      └── API-Gateway-Lambda-DynamoDB-Setup.md
+└── s3 bucket/
+      └── API-Gateway-Lambda-DynamoDB-Setup.md
 
 Setup Instructions
 To get this CV online and the visitor counter functioning, you will need to follow the AWS setup instructions provided in the aws-setup/ directory.
@@ -51,9 +50,9 @@ Clone this repository:
 git clone https://github.com/your-username/my-online-cv.git
 cd my-online-cv
 
-Set up AWS Static Website Hosting: Follow the instructions in aws-setup/S3-CloudFront-Route53-Setup.md to deploy your index.html, style.css, and script.js files to S3, configure CloudFront for HTTPS, and set up your custom domain with Route 53.
+Set up AWS Static Website Hosting: Follow the instructions in s3 bucket/S3-CloudFront-Route53-Setup.md to deploy your index.html, style.css, and script.js files to S3, configure CloudFront for HTTPS, and set up your custom domain with Route 53.
 
-Set up AWS Visitor Counter Backend: Follow the instructions in aws-setup/API-Gateway-Lambda-DynamoDB-Setup.md to create your DynamoDB table, deploy the lambda/visitor_counter_function.py to Lambda, and set up API Gateway to expose it.
+Set up AWS Visitor Counter Backend: Follow the instructions in lambda function/API-Gateway-Lambda-DynamoDB-Setup.md to create your DynamoDB table, deploy the lambda/"visitor_counter_function.py" to Lambda, and set up API Gateway to expose it.
 
 Update Frontend API Endpoint: Once your API Gateway is deployed, you will get an "Invoke URL". Update the API_ENDPOINT variable in script.js with this URL.
 
