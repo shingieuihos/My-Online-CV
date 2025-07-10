@@ -40,7 +40,7 @@ my-online-cv/
       └── ShingiCVisitorCounter.py
       └── API-Gateway-Lambda-DynamoDB-Setup.md
 └── s3 bucket/
-      └── API-Gateway-Lambda-DynamoDB-Setup.md
+      └── S3-CloudFront-Route53-Setup.md
 
 Setup Instructions
 To get this CV online and the visitor counter functioning, you will need to follow the AWS setup instructions provided in the aws-setup/ directory.
