@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shingi Mudyirwa - IT Professional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .cv-wrapper {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(-100px) translateY(-100px); }
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.2);
+            margin-bottom: 20px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        .name {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .title {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .visitor-counter {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        .sidebar {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .main-content {
+            padding: 0 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .experience-item, .education-item, .project-item {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover, .education-item:hover, .project-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .job-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            font-weight: 500;
+            color: #3498db;
+            margin-bottom: 5px;
+        }
+
+        .date {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 25px;
+            text-align: center;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .languages, .certifications {
+            list-style: none;
+        }
+
+        .languages li, .certifications li {
+            background: #ecf0f1;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border-left: 3px solid #3498db;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #2c3e50;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: #3498db;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            opacity: 0.8;
+        }
+
+        .credly-badges {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .credly-badge {
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .credly-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .credly-badge img {
+            width: 100%;
+            height: auto;
+            max-width: 200px;
+            display: block;
+        }
+
+        .badge-container {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .badge-title {
+            font-size: 0.9em;
+            color: #2c3e50;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        .error-message {
+            background: #ffeaa7;
+            color: #d63031;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 0.9em;
+            border-left: 4px solid #d63031;
+        }
+
+        .success-message {
+            background: #00b894;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .name {
+                font-size: 2em;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+
+            .credly-badge img {
+                max-width: 150px;
+            }
+        }
+
+        .tech-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.1;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="tech-pattern"></div>
+    <div class="container">
+        <div class="cv-wrapper">
+            <header class="header">
+                <img src="https://shingidocs.s3.af-south-1.amazonaws.com/onlinepics/Shingi+pp+(1).png" 
+                     alt="Profile Picture" 
+                     class="profile-image"
+                     onerror="this.style.display='none'">
+                <h1 class="name">Shingi Mudyirwa</h1>
+                <p class="title">Cloud Enthusiast | AWS Cloud Engineer</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="icon">📧</span>
+                        <span>smudyirwa@gmail.com</span>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="icon">📍</span>
+                        <span>Cape Town, South Africa</span>
+                    </div>
+                    <div class="contact-item visitor-counter">
+                        <span class="icon">👁️</span>
+                        <span id="visitor-count">Loading...</span>
+                    </div>
+                </div>
+                <div id="counter-error" class="error-message" style="display: none;"></div>
+            </header>
+
+            <div class="content">
+                <aside class="sidebar">
+                    <div class="section">
+                        <h2 class="section-title">Contact</h2>
+                        <div class="contact-links">
+                            <a href="https://www.linkedin.com/in/shingimudyirwa/" class="contact-link" target="_blank">
+                                <span class="icon">💼</span>
+                                <span>LinkedIn Profile</span>
+                            </a>
+                            <a href="mailto:smudyirwa@gmail.com" class="contact-link">
+                                <span class="icon">📧</span>
+                                <span>Email</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2 class="section-title">Technical Skills</h2>
+                        <div class="skills-grid">
+                            <div class="skill-item">AWS Compute</div>
+                            <div class="skill-item">AWS Cloud</div>
+                            <div class="skill-item">DevOps</div>
+                            <div class="skill-item">Biblical Teaching</div>
+                            <div class="skill-item">Discipleship Training</div>
+                            <div class="skill-item">Youth Ministry</div>
+                            <div class="skill-item">Terraform</div>
+                            <div class="skill-item">API Gateway</div>
+                            <div class="skill-item">DynamoDB</div>
+                            <div class="skill-item">Teaching</div>
+                            <div class="skill-item">Preaching</div>
+                            <div class="skill-item">Ministry Leadership</div>
+                            <div class="skill-item">Amazon RDS</div>
+                            <div class="skill-item">Amazon S3</div>
+                            <div class="skill-item">Amazon VPC</div>
+                            <div class="skill-item">Amazon EC2</div>
+                            <div class="skill-item">Cloud Computing</div>
+                            <div class="skill-item">AWS Lambda</div>
+                            <div class="skill-item">AWS IAM</div>
+                            <div class="skill-item">AWS CloudFormation</div>
+                            <div class="skill-item">Church Events</div>
+                            <div class="skill-item">Church Administration</div>
+                            <div class="skill-item">Nonprofit Volunteering</div>
+                            <div class="skill-item">CloudFront</div>
+                            <div class="skill-item">Linux</div>
+                            <div class="skill-item">Cloud Networking</div>
+                            <div class="skill-item">Serverless Architectures</div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h2 class="section-title">Languages</h2>
+                        <ul class="languages">
+                            <li>English - Second language</li>
+                            <li>Shona - Native</li>
+                        </ul>
+                    </div>
+
+                    <div class="section">
+                        <h2 class="section-title">Certifications</h2>
+                        <ul class="certifications">
+                            <li>AWS Knowledge: Cloud Essentials (Jun 2025)</li>
+                            <li>AWS Knowledge: Compute (Jun 2025)</li>
+                            <li>AWS Knowledge: Networking Core (Jul 2025)</li>
+                            <li>AWS Skills Center - Cloud Practitioner: Foundations (Jun 2025)</li>
+                        </ul>
+                        
+                        <div class="credly-badges">
+                            <div class="badge-container">
+                                <a href="https://www.credly.com/badges/bd0a2711-c44c-40d3-a10b-a5f8d1edaedf" target="_blank" class="credly-badge">
+                                    <img src="https://shingidocs.s3.af-south-1.amazonaws.com/onlinepics/aws-knowledge-cloud-essentials.png" 
+                                         alt="AWS Knowledge: Cloud Essentials"
+                                         onerror="this.src='https://shingidocs.s3.af-south-1.amazonaws.com/onlinepics/aws-knowledge-cloud-essentials.png'">
+                                </a>
+                                <div class="badge-title">AWS Knowledge: Cloud Essentials</div>
+                            </div>
+                            
+                            <div class="badge-container">
+                                <a href="https://www.credly.com/badges/cb7cc554-f4cd-4400-a4a6-8b85bc8ca133" target="_blank" class="credly-badge">
+                                    <img src="https://shingidocs.s3.af-south-1.amazonaws.com/onlinepics/aws-knowledge-compute.png" 
+                                         alt="AWS Knowledge: Compute"
+                                         onerror="this.src='https://shingidocs.s3.af-south-1.amazonaws.com/onlinepics/aws-knowledge-compute.png'">
+                                </a>
+                                <div class="badge-title">AWS Knowledge: Compute</div>
+                            </div>
+                            
+
+                        <div class="credly-badges">
+                            <div class="badge-container">
+                                <a href="https://www.credly.com/badges/4547f8fa-2104-45dc-983c-84fde76ad7e2" target="_blank" class="credly-badge">
+                                    <img src="https://shingidocs.s3.af-south-1.amazonaws.com/onlinepics/aws-knowledge-networking-core.png" 
+                                         alt="AWS Knowledge: Networking Core"
+                                         onerror="this.src='https://shingidocs.s3.af-south-1.amazonaws.com/onlinepics/aws-knowledge-networking-core.png'">
+                                </a>
+                                <div class="badge-title">AWS Knowledge: Networking Core</div>
+                            </div>
+                                     
+                            <div class="badge-container">
+                                <a href="https://www.credly.com/badges/2c0cfa4d-d810-4e15-aca3-ff0ae1b20ed0" target="_blank" class="credly-badge">
+                                    <img src="https://shingidocs.s3.af-south-1.amazonaws.com/onlinepics/aws-skills-center-cloud-practitioner-foundations.png" 
+                                         alt="AWS Skills Center - Cloud Practitioner: Foundations"
+                                         onerror="this.src='https://shingidocs.s3.af-south-1.amazonaws.com/onlinepics/aws-skills-center-cloud-practitioner-foundations.png'">
+                                </a>
+                                <div class="badge-title">AWS Skills Center - Cloud Practitioner: Foundations</div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <main class="main-content">
+                    <div class="section">
+                        <h2 class="section-title">Professional Summary</h2>
+                        <p class="description">
+                            <strong>Ministry:</strong><br>
+                            Over 20 years in ministry with 18 in full-time ministry and still counting. I spent the majority of my service working and mentoring young people in the word of God during their most formative seasons through authentic discipleship and making God's word accessible to young people.
+                            <br><br>
+                            Over the past two decades, passion has fueled every aspect of my service in ministry, leading me to pioneer dynamic ways to impact my generation with the gospel of Jesus Christ—from Christian music and merch, to youth services and youth outreaches and programs that impacted tens of thousands of young lives.
+                            <br><br>
+                            Currently as the founder and ministry Director at WhatTheWordSays, my creativity and dynamism of sharing the faith continues through WhatTheWordSays as we continue to reach tens of thousands of people through the teaching of the Word of God on the platform.
+                            <br><br>
+                            <strong>Information Technology Enthusiast:</strong><br>
+                            Before a passion for ministry was kindled and took over, my passion for IT is what had me move all the way to Cape Town to pursue my studies and career in IT as a teenager where I began my journey in IT at CTU Training Solutions where I spent 2 years. As an IT enthusiast, I am interested in technologies all things cloud computing, from cloud engineering, architecting to DevOps specifically on the AWS platform. I enjoy the process of coming up with solutions to day to day problems that IT particularly cloud computing technologies can solve.
+                        </p>
+                    </div>
+
+                    <div class="section">
+                        <h2 class="section-title">Professional Experience</h2>
+                        
+                        <div class="experience-item">
+                            <h3 class="job-title">Ministry Director</h3>
+                            <p class="company">WhatTheWordSays</p>
+                            <p class="date">Sep 2020 - Present (4 years 11 months)</p>
+                            <p class="description">
+                                <strong>Location:</strong> Cape Town, Western Cape, South Africa · Hybrid<br>
+                                <strong>Type:</strong> Full-time<br><br>
+                                As founder and Ministry Director, I lead the strategic vision and daily operations of WhatTheWordSays, 
+                                a dynamic ministry platform reaching tens of thousands of people through the teaching of the Word of God. 
+                                My role combines creative leadership with pastoral care, pioneering innovative ways to share the gospel 
+                                and make God's word accessible to diverse audiences.
+                                <br><br>
+                                <strong>Key Skills:</strong> Youth Ministry, Teaching, Preaching, Church Events, Ministry Leadership, 
+                                Nonprofit Volunteering, Church Administration, Discipleship Training
+                            </p>
+                        </div>
+
+                        <div class="experience-item">
+                            <h3 class="job-title">Youth Minister</h3>
+                            <p class="company">Christ Embassy</p>
+                            <p class="date">Jun 2017 - Oct 2022 (5 years 5 months)</p>
+                            <p class="description">
+                                <strong>Location:</strong> City of Cape Town, Western Cape, South Africa<br><br>
+                                Served as Youth Minister, leading and mentoring young people in their spiritual development. 
+                                Developed and implemented youth programs, organized outreach events, and provided pastoral care 
+                                to young members of the congregation.
+                                <br><br>
+                                <strong>Key Skills:</strong> Nonprofit Volunteering, Microsoft Word, Youth Ministry, Teaching, 
+                                Ministry Leadership, Discipleship Training
+                            </p>
+                        </div>
+
+                        <div class="experience-item">
+                            <h3 class="job-title">Youth Minister</h3>
+                            <p class="company">Christ Embassy</p>
+                            <p class="date">Sep 2004 - Nov 2014 (10 years 3 months)</p>
+                            <p class="description">
+                                Began my journey in full-time ministry as a Youth Minister, focusing on mentoring young people 
+                                during their most formative seasons. Developed foundational skills in youth ministry, teaching, 
+                                and discipleship that would shape my entire ministry career.
+                                <br><br>
+                                This role laid the groundwork for my passion-driven approach to ministry, where I pioneered 
+                                innovative methods to impact young lives with the gospel of Jesus Christ.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2 class="section-title">Education</h2>
+                        
+                        <div class="education-item">
+                            <h3 class="job-title">AWS Cloud Practitioner Foundations, AWS Cloud Essentials, AWS Compute</h3>
+                            <p class="company">Amazon Web Services Training and Certification</p>
+                            <p class="date">June 2025</p>
+                            <p class="description">
+                                Completed training and assessment for certification.
+                            </p>
+                        </div>
+
+                        <div class="education-item">
+                            <h3 class="job-title">AWS Security Champion, AWS Storage Data Protection & Disaster Recovery, AWS Networking Core</h3>
+                            <p class="company">Amazon Web Services Training and Certification</p>
+                            <p class="date">July 2025</p>
+                            <p class="description">
+                                Completed training and assessment for certification.
+                            </p>
+                        </div>
+
+                        <div class="education-item">
+                            <h3 class="job-title">AWS Storage Data Migration, AWS EKS, AWS File Storage</h3>
+                            <p class="company">Amazon Web Services Training and Certification</p>
+                            <p class="date">August 2025</p>
+                            <p class="description">
+                                Completed training and assessment for certification.
+                            </p>
+                        </div>
+
+                        <div class="education-item">
+                            <h3 class="job-title">CompTIA A+, N+ Computer Networking</h3>
+                            <p class="company">CTU Training Solutions</p>
+                            <p class="date">2001 - 2003</p>
+                            <p class="description">
+                                Completed the A+ and N+ computer systems and networking, gaining foundational knowledge in computer architecture and network architecture, 
+                                protocols, and computer and network system administration.
+                            </p>
+                        </div>
+
+                        <div class="education-item">
+                            <h3 class="job-title">MCSE</h3>
+                            <p class="company">CTU Training Solutions</p>
+                            <p class="date">2001 - 2003</p>
+                            <p class="description">
+                                Completed Network+ and Microsoft Certified Systems Engineer (MCSE).
+                                Specialized in Operating Systems: Windows 7, 8 & 10.
+                            </p>
+                        </div>
+
+                        <div class="education-item">
+                            <h3 class="job-title">High School</h3>
+                            <p class="company">Jameson High School</p>
+                            <p class="date">Completed</p>
+                            <p class="description">
+                                Completed secondary education.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2 class="section-title">Ministry & Outreach Projects</h2>
+                        
+                        <div class="project-item">
+                            <h3 class="job-title">WhatTheWordSays Ministry Platform</h3>
+                            <p class="date">2020 - Present</p>
+                            <p class="description">
+                                Founded and developed a comprehensive ministry platform reaching tens of thousands of people 
+                                through digital teaching of the Word of God. The platform combines creative content delivery 
+                                with pastoral care, pioneering innovative ways to share the gospel and make God's word accessible 
+                                to diverse audiences across multiple demographics.
+                            </p>
+                        </div>
+
+                        <div class="project-item">
+                            <h3 class="job-title">Youth Ministry</h3>
+                            <p class="date">2017 - Present</p>
+                            <p class="description">
+                                Actively involved in youth ministry, organizing events, teaching sessions, and mentoring young individuals.
+                            </p>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Updated Visitor Counter with improved error handling
+        const API_ENDPOINT = 'https://hsvl9068qk.execute-api.af-south-1.amazonaws.com/prod/visitor-count';
+        let visitorCount = 0;
+        let retryCount = 0;
+        const maxRetries = 3;
+
+        // Timeout function for fetch requests
+        function fetchWithTimeout(url, options, timeout = 10000) {
+            return new Promise((resolve, reject) => {
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => {
+                    controller.abort();
+                    reject(new Error('Request timeout'));
+                }, timeout);
+
+                fetch(url, {
+                    ...options,
+                    signal: controller.signal
+                })
+                .then(response => {
+                    clearTimeout(timeoutId);
+                    resolve(response);
+                })
+                .catch(error => {
+                    clearTimeout(timeoutId);
+                    reject(error);
+                });
+            });
+        }
+
+        // Fallback visitor count
+        function getFallbackVisitorCount() {
+            // Simple fallback - you can make this more sophisticated
+            return Math.floor(Math.random() * 100) + 50;
+        }
+
+        async function updateVisitorCount() {
+            const visitorCountElement = document.getElementById('visitor-count');
+            const errorElement = document.getElementById('counter-error');
+
+            if (!visitorCountElement) {
+                console.error('Error: visitor-count element not found');
+                return;
+            }
+
+            try {
+                // Show loading state
+                visitorCountElement.textContent = 'Loading...';
+                console.log('Fetching visitor count from:', API_ENDPOINT);
+
+                // Make the API call with timeout
+                const response = await fetchWithTimeout(API_ENDPOINT, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        action: 'increment'
+                    })
+                }, 8000); // 8 second timeout
+
+                console.log('Response status:', response.status);
+                console.log('Response headers:', response.headers);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                // Get response text first to debug
+                const responseText = await response.text();
+                console.log('Raw response:', responseText);
+
+                // Try to parse JSON
+                let data;
+                try {
+                    data = JSON.parse(responseText);
+                } catch (parseError) {
+                    console.error('JSON parse error:', parseError);
+                    throw new Error('Invalid JSON response');
+                }
+
+                console.log('Parsed data:', data);
+
+                // Handle different response formats
+                let count = null;
+                if (data.count !== undefined) {
+                    count = data.count;
+                } else if (data.visitor_count !== undefined) {
+                    count = data.visitor_count;
+                } else if (typeof data === 'number') {
+                    count = data;
+                }
+
+                if (count !== null && typeof count === 'number') {
+                    visitorCount = count;
+                    visitorCountElement.textContent = `Visitor #${count}`;
+                    
+                    // Update styling for success
+                    if (visitorCountElement.parentElement) {
+                        visitorCountElement.parentElement.classList.add('visitor-counter');
+                    }
+
+                    // Hide error message
+                    if (errorElement) {
+                        errorElement.style.display = 'none';
+                    }
+
+                    console.log('Visitor count updated successfully:', count);
+                } else {
+                    throw new Error(`Invalid response format: expected number, got ${typeof count}`);
+                }
+
+            } catch (error) {
+                console.error('Error updating visitor count:', error);
+
+                // Retry logic
+                if (retryCount < maxRetries) {
+                    retryCount++;
+                    console.log(`Retrying... (${retryCount}/${maxRetries})`);
+                    setTimeout(()
