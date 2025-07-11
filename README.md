@@ -54,6 +54,8 @@ Set up AWS Static Website Hosting: Follow the instructions in s3 bucket/S3-Cloud
 
 Set up AWS Visitor Counter Backend: Follow the instructions in lambda function/API-Gateway-Lambda-DynamoDB-Setup.md to create your DynamoDB table, deploy the lambda/"visitor_counter_function.py" to Lambda, and set up API Gateway to expose it.
 
+https://shingimudyirwa.click
+
 Update Frontend API Endpoint: Once your API Gateway is deployed, you will get an "Invoke URL". Update the API_ENDPOINT variable in script.js with this URL.
 
 Upload Updated script.js: Upload the modified script.js to your S3 bucket, overwriting the old one.
