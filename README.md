@@ -65,4 +65,4 @@ Upload Updated script.js: Upload the modified script.js to your S3 bucket, overw
 Test: Open your custom domain in a web browser and verify that the visitor counter appears and increments.
 
 Custom domain with Route 53
-https://shingimudyirwa.click
+http://cv.shingimudyirwa.click
