@@ -54,7 +54,7 @@ cd my-online-cv
 
 Set up AWS Static Website Hosting: Follow the instructions in s3 bucket/S3-CloudFront-Route53-Setup.md to deploy your index.html, style.css, and script.js files to S3, configure CloudFront for HTTPS, and set up your custom domain with Route 53.
 
-https://shingidocs.s3.af-south-1.amazonaws.com/onlinepics/index.html
+https://s3.af-south-1.amazonaws.com/cv.shingimudyirwa.click/index.html
 
 Set up AWS Visitor Counter Backend: Follow the instructions in lambda function/API-Gateway-Lambda-DynamoDB-Setup.md to create your DynamoDB table, deploy the lambda/"visitor_counter_function.py" to Lambda, and set up API Gateway to expose it.
 
