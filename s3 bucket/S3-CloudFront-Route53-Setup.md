@@ -1,8 +1,8 @@
 # AWS S3, (CloudFront), Route 53 Setup Instructions
 
-# Key Steps:
+## Key Steps:
 
-#  Create an S3 Bucket:
+###  Create an S3 Bucket:
 
 Name your bucket the same as your domain (e.g., my-resume.com).
 
@@ -14,7 +14,7 @@ Upload index.html, (style.css, and script.js) to this bucket.
 
 Configure bucket policy to allow public read access.
 
-# Set up CloudFront Distribution:
+### Set up CloudFront Distribution:
 
 Create a new CloudFront distribution.
 
@@ -26,7 +26,7 @@ Request or select an SSL certificate from AWS Certificate Manager (ACM) for your
 
 Add your custom domain name (e.g., my-resume.com) as an Alternate Domain Name (CNAME).
 
-#  Configure Route 53:
+###  Configure Route 53:
 
 Register your custom domain if you haven't already.
 
