@@ -1,8 +1,8 @@
-AWS API Gateway, Lambda, DynamoDB Setup Instructions
+# AWS API Gateway, Lambda, DynamoDB Setup Instructions
 
-Key Steps:
+## Key Steps:
 
-Create DynamoDB Table:
+### Create DynamoDB Table:
 
 Create a new table (e.g., visitor-count).
 
@@ -10,7 +10,7 @@ Define a primary key (e.g., id as a String).
 
 Choose on-demand capacity mode.
 
-Create Lambda Function:
+### Create Lambda Function:
 
 Create a new Lambda function (e.g., visitorCounterFunction).
 
@@ -22,7 +22,7 @@ Copy the content of lambda/visitor_counter_function.py into your Lambda function
 
 Add an environment variable TABLE_NAME with the value visitor-count (or your table's name).
 
-Create API Gateway:
+### Create API Gateway:
 
 Create a new REST API.
 
