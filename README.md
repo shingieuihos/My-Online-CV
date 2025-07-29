@@ -1,6 +1,4 @@
 
-
-
 # My-Online-CV
 This repository contains the code and configuration for my online Curriculum Vitae, hosted on AWS as a static website with a visitor counter.
 
@@ -27,6 +25,8 @@ Amazon Route 53: Manages custom domain DNS.
 Amazon API Gateway: Exposes the Lambda function as a REST API.
 
 Amazon DynamoDB: Stores the visitor count.
+
+Amazon CloudFront 
 
 ## Documentation:
 
@@ -69,6 +69,8 @@ cd my-online-cv
 
 4. Upload Updated script.js: Upload the modified script.js to your S3 bucket, overwriting the old one.
 
+5. Configure Amazon CloudFront for A records for domain name resolution and HTTPS and HTTP 
+
 Test: Open your custom domain in a web browser and verify that the visitor counter appears and increments.
 
 ## Technical Challenges I encountered:
@@ -76,5 +78,7 @@ With the Lambda function, and API ENDPOINT and the DynamoDB working perfectly to
 Prior to this I experienced a CORS related errors with the API ENDPOINT. I resolved it by manually creating the visitor-count - "GET" - Method execution as only the OPTIONS and POST methods were active. This resolved all the errors I was getting, and now everything is functioning perfectly.  
 
 Custom domain with Route 53
+
+https://cv.shingimudyirwa.click
 
 http://cv.shingimudyirwa.click
