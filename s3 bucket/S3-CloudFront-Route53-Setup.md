@@ -24,7 +24,7 @@ Choose "Redirect HTTP to HTTPS".
 
 Request or select an SSL certificate from AWS Certificate Manager (ACM) for your custom domain.
 
-Add your custom domain name (e.g., my-resume.com) as an Alternate Domain Name (CNAME).
+
 
 ##  Configure Route 53:
 
